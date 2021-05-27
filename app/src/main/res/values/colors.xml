@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fafafa</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#00b0ff</color>
+    <color name="lightText">#FFFFFF</color>
+    <color name="secondaryColor">#00b0ff</color>
+    <color name="secondaryLightColor">#69e2ff</color>
+    <color name="secondaryDarkColor">#0081cb</color>
+
+    <color name="ButtonRed">#e65100</color>
+    <color name="ButtonGreen">#8bc34a</color>
+    <color name="red">#F51100</color>
+    <color name="black">#000000</color>
+
+    <!--Text Color-->
+    <color name="primaryText">#000000</color>
+    <color name="secondaryText">#8A000000</color>
+    <color name="disabledText">#61000000</color>
+    <color name="divider">#1F000000</color>
+    <color name="text_light">#FFF</color>
+
+    <!--Setting Color-->
+    <color name="background">#FAFAFA</color>
+    <color name="backgroundElement">#FFFFFF</color>
+</resources>

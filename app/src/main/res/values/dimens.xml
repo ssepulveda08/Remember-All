@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="height_dialog_add_list">100dp</dimen>
+
+    <dimen name="empty">0dp</dimen>
+    <dimen name="tiny">4dp</dimen>
+    <dimen name="small">8dp</dimen>
+    <dimen name="medium">12dp</dimen>
+    <dimen name="large">16dp</dimen>
+    <dimen name="big">24dp</dimen>
+    <dimen name="huger">32dp</dimen>
+    <dimen name="superHuger">40dp</dimen>
+
+    <!--size view-->
+    <dimen name="size_ic_config">25dp</dimen>
+    <dimen name="size_ic_xConfig">30dp</dimen>
+    <dimen name="size_image_profile">65dp</dimen>
+    <dimen name="size_line">0.5dp</dimen>
+    <dimen name="size_option">60dp</dimen>
+
+    <!--size text-->
+    <dimen name="font_title">20sp</dimen>
+    <dimen name="font_inputs">16sp</dimen>
+    <dimen name="font_body">14sp</dimen>
+    <dimen name="font_button">14sp</dimen>
+    <dimen name="font_caption">12sp</dimen>
+
+
+    <dimen name="divider">1dip</dimen>
+    <dimen name="size_toolbar_height">200dp</dimen>
+    <dimen name="max_height_recycler_dialog">400dp</dimen>
+    <dimen name="size_logo_splash">80dp</dimen>
+
+
+</resources>

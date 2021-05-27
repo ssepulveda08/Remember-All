@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView_profile"
+        android:layout_width="@dimen/size_image_profile"
+        android:layout_height="@dimen/size_image_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_close"
+        app:srcCompat="@drawable/ic_picture_profile"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imageView_close"
+        android:layout_width="@dimen/size_ic_config"
+        android:layout_height="@dimen/size_ic_config"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/large"
+        app:srcCompat="@drawable/ic_close_menu"
+        android:contentDescription="@null" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        style="@style/CustomTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small"
+        android:layout_marginStart="@dimen/huger"
+        android:layout_marginEnd="@dimen/huger"
+        android:hint="@string/hind_setting_name"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_profile"
+        app:layout_constraintStart_toStartOf="@+id/imageView_profile"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_profile"
+        app:startIconDrawable="@drawable/ic_profile_keep_calm">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditText_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:maxLength="13" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <ImageView
+        android:id="@+id/imageView_edit_profile"
+        android:layout_width="@dimen/size_ic_config"
+        android:layout_height="@dimen/size_ic_config"
+        android:layout_marginEnd="@dimen/superHuger"
+        app:layout_constraintBottom_toBottomOf="@+id/textField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textField"
+        app:srcCompat="@drawable/ic_edit_white_24dp"
+        app:tint="@color/divider" />
+
+    <ImageView
+        android:id="@+id/imageView_save"
+        android:layout_width="@dimen/size_ic_config"
+        android:layout_height="@dimen/size_ic_config"
+        android:layout_marginEnd="@dimen/superHuger"
+        app:layout_constraintBottom_toBottomOf="@+id/textField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textField"
+        app:srcCompat="@drawable/ic_baseline_save_24"
+        android:visibility="gone"
+        app:tint="@color/divider" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

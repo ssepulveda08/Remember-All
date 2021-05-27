@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextTitle" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/font_title</item>
+        <item name="android:textColor">@color/primaryText</item>
+    </style>
+
+    <style name="TextBody" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/font_body</item>
+        <item name="android:textColor">@color/secondaryText</item>
+    </style>
+
+    <style name="TextCaption" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/font_caption</item>
+        <item name="android:textColor">@color/disabledText</item>
+    </style>
+
+    <style name="TextLight" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/font_caption</item>
+        <item name="android:textColor">@color/text_light</item>
+    </style>
+
+    <style name="TextTitle.Bold" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/font_title</item>
+        <item name="android:textColor">@color/primaryText</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

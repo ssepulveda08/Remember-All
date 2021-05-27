@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Remember All</string>
+    <string name="message">Mensaje</string>
+    <string name="send_button_label">Enviar</string>
+    <string name="copy_items">Elementos</string>
+    <string name="copy_edit">Editar</string>
+    <string name="copy_delete">Eliminar</string>
+    <string name="title_edit">"Editar item "</string>
+    <string name="copy_add">Agregar</string>
+    <string name="title_suggested_dialog">Las mejores opciones</string>
+    <string name="message_home">"Con Remember All no volverás a olvidar ninguna recomendación "</string>
+    <string name="double_column">"Mostrar listas doble columna "</string>
+    <string name="setting">Configuración</string>
+    <string name="more_options">Mas Opciones</string>
+    <string name="dark_mode">Modo oscuro</string>
+    <string name="getting_help">Obtener ayuda</string>
+    <string name="about">"Acerca de "</string>
+    <string name="github">GitHub</string>
+    <string name="fab_content_desc">fab</string>
+    <string name="message_splash">Crea listas y guarda todo lo que quieras.</string>
+    <string name="add_list">Agregar lista</string>
+    <string name="title_add_new_list">Agrega una nueva lista</string>
+    <string name="hind_add_new_list">Nombre de la lista</string>
+    <string name="selected_color">Selecciona un Color:</string>
+    <string name="title_add_new_item">Agrega un nuevo ítem</string>
+    <string name="copy_save">Guardar</string>
+    <string name="hind_setting_name">Configura tu Nombre</string>
+    <string name="copy_hello">Hola, %1$s!</string>
+    <string name="version_name"><![CDATA[@Remember All (0.0.1)]]></string>
+    <string name="subtitle_suggested_dialog">Hemos diseñado estas sugerencias para que inicias, selecciona las que más te llamen la atención y guarda todo lo que quieras.</string>
+    <string name="done">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="title_delete_list">¿Deseas eliminar esta lista?</string>
+    <string name="message_delete_list">Recuerda que perderás toda la informacion que tengas en esta.</string>
+    <string name="title_delete_item">¿Deseas eliminar esta Item?</string>
+    <string name="message_delete_item">Recuerda que puedes agregarlo de nuevo</string>
+
+    <string-array name="suggested_array">
+        <item>Música</item>
+        <item>Libros</item>
+        <item>Restaurantes</item>
+        <item>Artistas</item>
+        <item>Frases</item>
+        <item>Otros</item>
+    </string-array>
+
+</resources>

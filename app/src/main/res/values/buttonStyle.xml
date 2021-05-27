@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ButtonPrimary" parent="Widget.MaterialComponents.Button">
+        <item name="android:paddingTop">@dimen/large</item>
+        <item name="android:paddingBottom">@dimen/large</item>
+        <item name="android:paddingLeft">@dimen/large</item>
+        <item name="android:paddingRight">@dimen/large</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">@dimen/font_button</item>
+        <item name="android:textColor">@color/lightText</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:background">@color/colorAccent</item>
+    </style>
+
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Text Color-->
+    <color name="primaryText">#FFF</color>
+    <color name="secondaryText">#8AFFFFFF</color>
+    <color name="disabledText">#61FFFFFF</color>
+    <color name="divider">#1FFFFFFF</color>
+    <color name="text_light">#FFF</color>
+
+    <!--Setting Color-->
+    <color name="background">#303030</color>
+    <color name="backgroundElement">#424242</color>
+</resources>
