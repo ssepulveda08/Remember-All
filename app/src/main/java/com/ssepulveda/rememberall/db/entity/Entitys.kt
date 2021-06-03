@@ -9,7 +9,7 @@ data class ListApp(
     val color: String = ""
 )
 
-data class ListAppCount(
+data class CounterList(
     val id: Long,
     val name: String = "",
     val color: String = "",

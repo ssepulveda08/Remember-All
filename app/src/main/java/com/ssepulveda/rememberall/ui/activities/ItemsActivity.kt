@@ -46,8 +46,8 @@ class ItemsActivity : BaseActivity() {
 
     private fun initViewModel(id: Long) {
         viewModel.initData(id)
-        viewModel.getItemsByList().observe(this, { it?.let { items -> loadList(items) } })
-        viewModel.getDataList().observe(this, ::initToolbar)
+        viewModel.onItemsByList().observe(this, { it?.let { items -> loadList(items) } })
+        viewModel.onList().observe(this, ::initToolbar)
     }
 
     private fun showOptionItem(show: Boolean) {

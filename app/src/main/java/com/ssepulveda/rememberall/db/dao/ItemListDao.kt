@@ -19,11 +19,4 @@ interface ItemListDao {
     @Update
     fun updateItem(itemList: ItemList)
 
-    /*@Query("UPDATE item_list SET text = :newText WHERE itemId = :id")
-    fun updateItem(id: Long, newText)*/
-
-
-
-    //@Delete
-    //fun deleteItem(item: ItemList)
 }

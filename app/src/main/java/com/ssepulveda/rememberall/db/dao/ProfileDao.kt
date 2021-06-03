@@ -14,7 +14,7 @@ interface ProfileDao {
     fun getNameProfile(): LiveData<String>
 
     @Query("SELECT name FROM profile WHERE id = 1 LIMIT 1")
-    fun getNameActive(): String
+    fun getNameActive(): String?
 
     @Update
     fun updateProfile(profile: Profile)

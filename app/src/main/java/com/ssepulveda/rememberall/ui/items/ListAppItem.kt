@@ -6,7 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.ssepulveda.rememberall.R
 import com.ssepulveda.rememberall.databinding.ItemListAppBinding
-import com.ssepulveda.rememberall.db.entity.ListAppCount
+import com.ssepulveda.rememberall.db.entity.CounterList
 import com.ssepulveda.rememberall.ui.ModelsViews.ListAppModel
 import com.ssepulveda.rememberall.utils.changeColorDrawable
 import com.ssepulveda.rememberall.utils.ucFirst
@@ -66,7 +66,7 @@ class ListAppItem(
     }
 
     interface ListenerItem {
-        fun onOpenDetailItem(item: ListAppCount)
-        fun onDeleteItem(item: ListAppCount)
+        fun onOpenDetailItem(item: CounterList)
+        fun onDeleteItem(item: CounterList)
     }
 }

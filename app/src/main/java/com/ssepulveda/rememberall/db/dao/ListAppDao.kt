@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.ssepulveda.rememberall.db.entity.ListApp
-import com.ssepulveda.rememberall.db.entity.ListAppCount
+import com.ssepulveda.rememberall.db.entity.CounterList
 
 @Dao
 interface ListAppDao {
@@ -18,7 +18,7 @@ interface ListAppDao {
     fun getCountListApp(): Int
 
     @Query("SELECT id, name, color,(SELECT  COUNT(itemId) FROM item_list WHERE listId = id)  as count from list_app ORDER BY id ASC")
-    fun getListAppAndCount(): LiveData<List<ListAppCount>>
+    fun getListAppAndCount(): LiveData<List<CounterList>>
 
     @Query("SELECT id, name, color from list_app WHERE  id = :listId LIMIT 1")
     fun getListById(listId: Long): LiveData<ListApp>

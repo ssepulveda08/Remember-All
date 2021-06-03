@@ -4,19 +4,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ssepulveda.rememberall.db.AppRepository
+import com.ssepulveda.rememberall.base.repositorys.BaseItemRepository
 import com.ssepulveda.rememberall.db.entity.ItemList
+import com.ssepulveda.rememberall.db.repositories.ItemsRepository
+import com.ssepulveda.rememberall.db.repositories.ListRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ItemsViewModel @Inject constructor(
-    private val repository: AppRepository,
+    private val listRepository: ListRepository,
+    private val itemRepository: ItemsRepository,
 ) : ViewModel() {
-    private var idListApp: Long = 0
 
-    private var _colorList = MutableLiveData("")
+    private var idListApp: Long = 0
 
     private var _currentIdItem = MutableLiveData<ItemList>()
 
@@ -24,21 +26,17 @@ class ItemsViewModel @Inject constructor(
         idListApp = id
     }
 
-    fun getItemsByList() = repository.getItemsByList(idListApp)
-
     fun setItemList(text: String) {
         viewModelScope.launch {
             val model = ItemList(0, idListApp, text)
-            repository.setItemList(model)
+            itemRepository.addNewItem(model)
         }
     }
-
-    fun getDataList() = repository.getListById(idListApp)
 
     fun deleteItem() {
         viewModelScope.launch {
             _currentIdItem.value?.let {
-                repository.deleteItem(it)
+                itemRepository.deleteItem(it)
             }
         }
     }
@@ -51,19 +49,24 @@ class ItemsViewModel @Inject constructor(
                     it.listId,
                     text
                 )
-                repository.updateItem(item)
+                itemRepository.updateItem(item)
             }
         }
     }
-
-
-    fun colorList(): LiveData<String> = _colorList
-
-    fun getCurrentItemList(): LiveData<ItemList> = _currentIdItem
 
     fun configIdItemEdit(itemList: ItemList? = null) {
         itemList?.let {
             _currentIdItem.postValue(itemList)
         }
     }
+
+    /**
+     * LiveData
+     */
+
+    fun getCurrentItemList(): LiveData<ItemList> = _currentIdItem
+
+    fun onList() = listRepository.getListById(idListApp)
+
+    fun onItemsByList() = itemRepository.getItemsByList(idListApp)
 }

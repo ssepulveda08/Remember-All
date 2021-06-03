@@ -13,7 +13,7 @@ import com.ssepulveda.rememberall.R
 import com.ssepulveda.rememberall.base.BaseActivity
 import com.ssepulveda.rememberall.databinding.ActivityMainBinding
 import com.ssepulveda.rememberall.db.entity.ListApp
-import com.ssepulveda.rememberall.db.entity.ListAppCount
+import com.ssepulveda.rememberall.db.entity.CounterList
 import com.ssepulveda.rememberall.ui.ModelsViews.ListAppModel
 import com.ssepulveda.rememberall.ui.ModelsViews.SuggestedItemModel
 import com.ssepulveda.rememberall.ui.activities.models.StartActivityModel
@@ -161,8 +161,8 @@ class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
 
     private fun initViewModel() {
         viewModel.apply {
-            getListAppAndCount().observe(this@HomeActivity, ::loadList)
-            getNameProfile().observe(this@HomeActivity, ::loadNameProfile)
+            onCounterList().observe(this@HomeActivity, ::loadList)
+            onNameProfile().observe(this@HomeActivity, ::loadNameProfile)
             showDialogSuggested().observe(this@HomeActivity, ::showSuggestedDialog)
         }
     }
@@ -197,10 +197,10 @@ class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
         viewModel.setList(listApp)
     }
 
-    private fun loadList(listApp: List<ListAppCount>) {
-        if (listApp.isNotEmpty()) viewModel.initShowSuggestedDialog()
+    private fun loadList(counterListApp: List<CounterList>) {
+        if (counterListApp.isNotEmpty()) viewModel.initShowSuggestedDialog()
         val section = Section()
-        listApp.forEach { item ->
+        counterListApp.forEach { item ->
             section.add(ListAppItem(baseContext, ListAppModel(item), this))
         }
         groupAdapter.clear()
@@ -226,14 +226,14 @@ class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
         dialogSuggested.dismiss()
     }
 
-    override fun onOpenDetailItem(item: ListAppCount) {
+    override fun onOpenDetailItem(item: CounterList) {
         val bundle = Bundle().apply {
             putLong(KEY_ID_LIST, item.id)
         }
         startActivity(StartActivityModel(ItemsActivity::class.java, bundle))
     }
 
-    override fun onDeleteItem(item: ListAppCount) {
+    override fun onDeleteItem(item: CounterList) {
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.title_delete_list)
             .setMessage(R.string.message_delete_list)
