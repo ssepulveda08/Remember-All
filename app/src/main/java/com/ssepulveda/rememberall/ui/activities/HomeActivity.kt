@@ -75,7 +75,6 @@ class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
         }
         ExpandableGroup(SimpleTextItem(baseContext.getString(R.string.more_options)), true).apply {
             add(getItemGitHub())
-            add(getItemGettingHelp())
             add(getItemAbout())
             adapterMenu.add(this)
         }
@@ -97,17 +96,13 @@ class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
         )
     )
 
-    private fun getItemGettingHelp(): Group = Section(
-        CheckOptionItem(
-            baseContext.getString(R.string.getting_help),
-            showCheck = false,
-        )
-    )
-
     private fun getItemAbout(): Group = Section(
         CheckOptionItem(
             baseContext.getString(R.string.about),
             showCheck = false,
+            onclick = {
+                openUrl(getString(R.string.linkedin_url))
+            }
         )
     )
 
@@ -115,6 +110,9 @@ class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
         CheckOptionItem(
             baseContext.getString(R.string.github),
             showCheck = false,
+            onclick = {
+                openUrl(getString(R.string.github_url))
+            }
         )
     )
 

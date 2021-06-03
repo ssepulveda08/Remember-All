@@ -35,6 +35,9 @@
     <string name="title_delete_item">¿Deseas eliminar esta Item?</string>
     <string name="message_delete_item">Recuerda que puedes agregarlo de nuevo</string>
 
+    <string name="github_url" translatable="false">https://github.com/ssepulveda08/Remember-All</string>
+    <string name="linkedin_url" translatable="false">https://www.linkedin.com/in/santiago-sepulveda-2565a0187/</string>
+
     <string-array name="suggested_array">
         <item>Música</item>
         <item>Libros</item>

@@ -1,6 +1,7 @@
 package com.ssepulveda.rememberall.base
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import com.ssepulveda.rememberall.ui.activities.models.StartActivityModel
@@ -27,5 +28,11 @@ open class BaseActivity : AppCompatActivity() {
         }
         intent.flags = startActivityModel.flags
         startActivityForResult(intent, startActivityModel.code)
+    }
+
+    fun openUrl(webUrl: String) {
+        val uri: Uri = Uri.parse(webUrl)
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        startActivity(intent)
     }
 }
