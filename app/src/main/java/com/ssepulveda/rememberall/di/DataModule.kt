@@ -35,5 +35,4 @@ class DataModule {
         preference: SharedPreferences,
         editor: SharedPreferences.Editor
     ): SharedPreferenceRepository = SharedPreferenceRepository(preference, editor)
-
 }

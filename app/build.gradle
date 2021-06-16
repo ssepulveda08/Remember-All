@@ -51,7 +51,7 @@ dependencies {
     implementation "androidx.activity:activity-ktx:1.2.3"
 
     //UI
-    api 'com.google.android.material:material:1.4.0-beta01'
+    api "com.google.android.material:material:$material_version"
 
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
@@ -76,6 +76,12 @@ dependencies {
 
     //test Room
     testImplementation "androidx.room:room-testing:$room_version"
+
+    //Biometric
+    implementation "androidx.biometric:biometric:$biometric_version"
+
+    //Gson
+    implementation "com.google.code.gson:gson:$gson_version"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

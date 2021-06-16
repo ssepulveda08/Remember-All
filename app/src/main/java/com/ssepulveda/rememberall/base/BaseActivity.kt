@@ -7,7 +7,6 @@ import androidx.fragment.app.DialogFragment
 import com.ssepulveda.rememberall.ui.activities.models.StartActivityModel
 
 open class BaseActivity : AppCompatActivity() {
-
     fun showDialog(dialog: DialogFragment, tag: String?): Boolean {
         var wasShown = false
         val fragment = supportFragmentManager.findFragmentByTag(dialog.javaClass.name)
