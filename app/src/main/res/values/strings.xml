@@ -26,7 +26,7 @@
     <string name="copy_save">Guardar</string>
     <string name="hind_setting_name">Configura tu Nombre</string>
     <string name="copy_hello">Hola, %1$s!</string>
-    <string name="version_name"><![CDATA[@Remember All (0.0.1)]]></string>
+    <string name="version_name"><![CDATA[@Remember All (0.0.2)]]></string>
     <string name="subtitle_suggested_dialog">Hemos diseñado estas sugerencias para que inicias, selecciona las que más te llamen la atención y guarda todo lo que quieras.</string>
     <string name="done">Aceptar</string>
     <string name="cancel">Cancelar</string>
@@ -37,6 +37,10 @@
 
     <string name="github_url" translatable="false">https://github.com/ssepulveda08/Remember-All</string>
     <string name="linkedin_url" translatable="false">https://www.linkedin.com/in/santiago-sepulveda-2565a0187/</string>
+    <string name="enter_with_footprint">Entrar con huella</string>
+    <string name="prompt_info_title">Verifica tu identidad</string>
+    <string name="prompt_info_subtitle">Para continuar por favor verifica tu identidad </string>
+    <string name="prompt_info_description">Acerca tu huella al censor de tu dispositivo para continuar </string>
 
     <string-array name="suggested_array">
         <item>Música</item>

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Gravity
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.biometric.BiometricPrompt
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,8 +13,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.ssepulveda.rememberall.R
 import com.ssepulveda.rememberall.base.BaseActivity
 import com.ssepulveda.rememberall.databinding.ActivityMainBinding
-import com.ssepulveda.rememberall.db.entity.ListApp
 import com.ssepulveda.rememberall.db.entity.CounterList
+import com.ssepulveda.rememberall.db.entity.ListApp
 import com.ssepulveda.rememberall.ui.ModelsViews.ListAppModel
 import com.ssepulveda.rememberall.ui.ModelsViews.SuggestedItemModel
 import com.ssepulveda.rememberall.ui.activities.models.StartActivityModel
@@ -23,16 +24,19 @@ import com.ssepulveda.rememberall.ui.items.CheckOptionItem
 import com.ssepulveda.rememberall.ui.items.ListAppItem
 import com.ssepulveda.rememberall.ui.items.SimpleTextItem
 import com.ssepulveda.rememberall.ui.viewModel.HomeViewModel
+import com.ssepulveda.rememberall.utils.BiometricAuthentication
+import com.ssepulveda.rememberall.utils.BiometricCallback
 import com.ssepulveda.rememberall.utils.getColorList
 import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.Section
 import dagger.hilt.android.AndroidEntryPoint
+import javax.crypto.Cipher
 
 @AndroidEntryPoint
-class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
-    ListAppItem.ListenerItem {
+class HomeActivity : BaseActivity(), BiometricCallback, SuggestedDialog.SuggestedDialogListener,
+    ListAppItem.ListenerItem  {
 
     private val viewModel: HomeViewModel by viewModels()
 
@@ -46,11 +50,14 @@ class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
 
     private val adapterMenu = GroupieAdapter()
 
+    private lateinit var biometricAuthentication: BiometricAuthentication
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         dialogSuggested = SuggestedDialog(this)
+        biometricAuthentication = BiometricAuthentication(this, lifecycle, this)
         initViewModel()
         setupView()
         initListener()
@@ -71,6 +78,7 @@ class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
         ExpandableGroup(SimpleTextItem(baseContext.getString(R.string.setting)), true).apply {
             add(getItemDoubleColumn())
             add(getItemDarkMode())
+            add(getItemBiometric())
             adapterMenu.add(this)
         }
         ExpandableGroup(SimpleTextItem(baseContext.getString(R.string.more_options)), true).apply {
@@ -96,24 +104,30 @@ class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
         )
     )
 
+    private fun getItemBiometric(): Group = Section(
+        CheckOptionItem(
+            baseContext.getString(R.string.enter_with_footprint),
+            viewModel.hasEnabledBiometricsStart(),
+            onCheck = ::configBiometric
+        )
+    )
+
     private fun getItemAbout(): Group = Section(
         CheckOptionItem(
             baseContext.getString(R.string.about),
-            showCheck = false,
-            onclick = {
-                openUrl(getString(R.string.linkedin_url))
-            }
-        )
+            showCheck = false
+        ) {
+            openUrl(getString(R.string.linkedin_url))
+        }
     )
 
     private fun getItemGitHub(): Group = Section(
         CheckOptionItem(
             baseContext.getString(R.string.github),
-            showCheck = false,
-            onclick = {
-                openUrl(getString(R.string.github_url))
-            }
-        )
+            showCheck = false
+        ) {
+            openUrl(getString(R.string.github_url))
+        }
     )
 
     private fun configDoubleColumn(state: Boolean) {
@@ -131,6 +145,14 @@ class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+    }
+
+    private fun configBiometric(onBiometric: Boolean) {
+        if (onBiometric) {
+            viewModel.showBiometricPromptForEncryption()
+        } else {
+            viewModel.clearBiometric()
         }
     }
 
@@ -164,6 +186,7 @@ class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
             onCounterList().observe(this@HomeActivity, ::loadList)
             onNameProfile().observe(this@HomeActivity, ::loadNameProfile)
             showDialogSuggested().observe(this@HomeActivity, ::showSuggestedDialog)
+            showBiometric().observe(this@HomeActivity, ::showBiometricPrompt)
         }
     }
 
@@ -247,6 +270,10 @@ class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
             .show()
     }
 
+    private fun showBiometricPrompt(cipher: Cipher) {
+        biometricAuthentication.createPrompt(cipher)
+    }
+
     @SuppressLint("RtlHardcoded")
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(Gravity.LEFT)) {
@@ -254,5 +281,13 @@ class HomeActivity : BaseActivity(), SuggestedDialog.SuggestedDialogListener,
         } else {
             super.onBackPressed()
         }
+    }
+
+    override fun biometricError(throwable: Throwable) {
+
+    }
+
+    override fun biometricSuccess(result: BiometricPrompt.AuthenticationResult) {
+        viewModel.encryptAndStoreServerToken(result)
     }
 }
