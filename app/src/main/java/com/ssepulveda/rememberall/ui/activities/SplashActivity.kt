@@ -11,7 +11,6 @@ import com.ssepulveda.rememberall.ui.activities.models.StartActivityModel
 import com.ssepulveda.rememberall.ui.viewModel.SplashViewModel
 import com.ssepulveda.rememberall.utils.BiometricAuthentication
 import com.ssepulveda.rememberall.utils.BiometricCallback
-import com.ssepulveda.rememberall.utils.biometric.BiometricPromptUtils
 import dagger.hilt.android.AndroidEntryPoint
 import javax.crypto.Cipher
 
@@ -64,5 +63,4 @@ class SplashActivity : BaseActivity(), BiometricCallback {
     override fun biometricSuccess(result: BiometricPrompt.AuthenticationResult) {
         viewModel.decryptServerTokenFromStorage(result)
     }
-
 }

@@ -31,5 +31,4 @@ class AppModule {
     @Provides
     @Singleton
     fun editorProvider(preference: SharedPreferences): SharedPreferences.Editor = preference.edit()
-
 }

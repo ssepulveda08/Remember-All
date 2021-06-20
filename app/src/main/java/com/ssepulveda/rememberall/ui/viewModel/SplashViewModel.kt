@@ -55,7 +55,7 @@ class SplashViewModel @Inject constructor(
         }
     }
 
-     private fun showBiometricPromptForDecryption() {
+    private fun showBiometricPromptForDecryption() {
         ciphertextWrapper?.let { textWrapper ->
             val secretKeyName = SECRET_KEY
             val cipher = cryptographyManager.getInitializedCipherForDecryption(

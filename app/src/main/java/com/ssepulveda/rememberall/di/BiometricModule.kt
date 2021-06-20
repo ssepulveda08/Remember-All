@@ -32,7 +32,4 @@ class BiometricModule {
     fun biometricManagerProvider(
         app: Application
     ): BiometricManager = BiometricManager.from(app)
-
-
-
 }

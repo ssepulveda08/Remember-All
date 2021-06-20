@@ -1,8 +1,10 @@
 package com.ssepulveda.rememberall.db.entity
 
-import androidx.room.*
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.PrimaryKey
 
-@Entity(tableName = "list_app" )
+@Entity(tableName = "list_app")
 data class ListApp(
     @PrimaryKey(autoGenerate = true) val id: Long,
     val name: String = "",
@@ -17,12 +19,15 @@ data class CounterList(
 )
 
 @Entity(
-    tableName = "item_list", foreignKeys = [ForeignKey(
-        entity = ListApp::class,
-        parentColumns = arrayOf("id"),
-        childColumns = arrayOf("listId"),
-        onDelete = ForeignKey.CASCADE
-    )]
+    tableName = "item_list",
+    foreignKeys = [
+        ForeignKey(
+            entity = ListApp::class,
+            parentColumns = arrayOf("id"),
+            childColumns = arrayOf("listId"),
+            onDelete = ForeignKey.CASCADE
+        )
+    ]
 )
 data class ItemList(
     @PrimaryKey(autoGenerate = true) val itemId: Long,

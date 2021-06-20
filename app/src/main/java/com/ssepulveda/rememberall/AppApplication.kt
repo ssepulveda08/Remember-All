@@ -12,5 +12,4 @@ class AppApplication : Application() {
         /*in some XIAOMI devices seems to be necessary*/
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
-
 }

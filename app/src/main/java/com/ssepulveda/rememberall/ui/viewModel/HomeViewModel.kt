@@ -1,6 +1,5 @@
 package com.ssepulveda.rememberall.ui.viewModel
 
-
 import android.content.Context
 import android.util.Log
 import androidx.biometric.BiometricManager
@@ -87,7 +86,6 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-
     /**
      * Biometric
      */
@@ -122,7 +120,6 @@ class HomeViewModel @Inject constructor(
             CIPHERTEXT_WRAPPER
         )
     }
-
 
     /**
      * Livedata

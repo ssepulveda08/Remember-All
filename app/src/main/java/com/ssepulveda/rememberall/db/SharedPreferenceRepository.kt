@@ -38,5 +38,4 @@ class SharedPreferenceRepository(
             is Int -> setInt(key, value)
         }
     }
-
 }

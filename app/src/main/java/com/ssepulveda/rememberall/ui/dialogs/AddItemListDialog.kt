@@ -52,5 +52,4 @@ class AddItemListDialog(val action: (String) -> Unit) :
 
     override val bindingInflater: (LayoutInflater) -> DialogAddItemListBinding
         get() = DialogAddItemListBinding::inflate
-
 }

@@ -25,5 +25,4 @@ class ItemsRepository(private val itemListDao: ItemListDao) : BaseItemRepository
     override suspend fun updateItem(item: ItemList) = withContext(Dispatchers.IO) {
         itemListDao.updateItem(item)
     }
-
 }

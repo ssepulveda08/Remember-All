@@ -44,5 +44,4 @@ class TopListItem(private val itemList: ItemList) : BindableItem<TopListItemBind
 
     override fun initializeViewBinding(view: View): TopListItemBinding =
         TopListItemBinding.bind(view)
-
 }

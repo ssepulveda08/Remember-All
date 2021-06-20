@@ -1,6 +1,5 @@
 package com.ssepulveda.rememberall.utils.biometric
 
-
 import android.app.Application
 import android.os.Build
 import android.security.keystore.KeyGenParameterSpec
@@ -36,7 +35,6 @@ interface CryptographyManager {
     ): CiphertextWrapper?
 
     fun clearCiphertextWrapperFromSharedPrefs(filename: String, mode: Int, prefKey: String)
-
 }
 
 fun CryptographyManager(app: Application): CryptographyManager = CryptographyManagerImpl(app)
@@ -140,6 +138,5 @@ private class CryptographyManagerImpl(val app: Application) : CryptographyManage
         app.getSharedPreferences(filename, mode).edit().putString(prefKey, DEFAULT_VALUE).apply()
     }
 }
-
 
 data class CiphertextWrapper(val ciphertext: ByteArray, val initializationVector: ByteArray)

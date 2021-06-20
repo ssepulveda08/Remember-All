@@ -52,7 +52,7 @@ class ColorAdapter(private val context: Context, private val colors: List<String
         } else {
             viewHolder.image.visibility = View.GONE
         }
-        val color = Color.parseColor("#$hex");
+        val color = Color.parseColor("#$hex")
         val mDrawable = ContextCompat.getDrawable(context, R.drawable.circle_color)
         mDrawable!!.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
@@ -62,14 +62,12 @@ class ColorAdapter(private val context: Context, private val colors: List<String
         } else {
             viewHolder.relative.background = mDrawable
         }
-
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var relative: LinearLayout = itemView.findViewById(R.id.container) as LinearLayout
         var image: ImageView = itemView.findViewById(R.id.image_check) as ImageView
     }
-
 
     fun getSelectColor(): String = selectColor
 

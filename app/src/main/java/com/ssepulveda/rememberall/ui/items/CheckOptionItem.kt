@@ -6,7 +6,6 @@ import com.ssepulveda.rememberall.R
 import com.ssepulveda.rememberall.databinding.ItemCheckOptionBinding
 import com.xwray.groupie.viewbinding.BindableItem
 
-
 class CheckOptionItem(
     private val option: String,
     private val isCheck: Boolean = false,
@@ -32,5 +31,4 @@ class CheckOptionItem(
     override fun initializeViewBinding(view: View): ItemCheckOptionBinding {
         return ItemCheckOptionBinding.bind(view)
     }
-
 }

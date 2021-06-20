@@ -5,8 +5,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.ssepulveda.rememberall.db.entity.ListApp
 import com.ssepulveda.rememberall.db.entity.CounterList
+import com.ssepulveda.rememberall.db.entity.ListApp
 
 @Dao
 interface ListAppDao {

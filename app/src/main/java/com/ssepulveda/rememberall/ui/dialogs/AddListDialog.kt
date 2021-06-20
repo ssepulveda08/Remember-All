@@ -81,5 +81,4 @@ class AddListDialog(val action: (list: ListApp) -> Unit) : BaseDialog<DialogAddL
 
     override val bindingInflater: (LayoutInflater) -> DialogAddListBinding
         get() = DialogAddListBinding::inflate
-
 }

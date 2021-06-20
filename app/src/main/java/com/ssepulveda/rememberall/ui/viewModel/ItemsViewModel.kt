@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ssepulveda.rememberall.base.repositorys.BaseItemRepository
 import com.ssepulveda.rememberall.db.entity.ItemList
 import com.ssepulveda.rememberall.db.repositories.ItemsRepository
 import com.ssepulveda.rememberall.db.repositories.ListRepository

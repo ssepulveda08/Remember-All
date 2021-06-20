@@ -38,7 +38,6 @@ class ListAppItem(
         showDeleteItem(binding, list.showDelete)
     }
 
-
     /**
      * Listener Action
      * */
