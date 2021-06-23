@@ -92,9 +92,9 @@ class ItemsActivity : BaseActivity() {
 
     private fun showDialogAdd(edit: Boolean = false) {
         val dialog = AddItemListDialog() { text ->
-            if(edit){
+            if (edit) {
                 viewModel.updateItem(text)
-            }else {
+            } else {
                 viewModel.setItemList(text)
             }
         }.apply {

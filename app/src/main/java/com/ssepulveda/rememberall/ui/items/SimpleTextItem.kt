@@ -24,5 +24,4 @@ class SimpleTextItem(val name: String) : BindableItem<ItemSimpleTextBinding>(), 
     override fun setExpandableGroup(onToggleListener: ExpandableGroup) {
         expandableGroup = onToggleListener
     }
-
 }

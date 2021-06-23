@@ -6,8 +6,7 @@ import com.ssepulveda.rememberall.databinding.ItemSuggestedBinding
 import com.ssepulveda.rememberall.ui.ModelsViews.SuggestedItemModel
 import com.xwray.groupie.viewbinding.BindableItem
 
-class SuggestedItem(private val data: SuggestedItemModel, val action: (SuggestedItemModel) -> Unit) : BindableItem<ItemSuggestedBinding>()  {
-
+class SuggestedItem(private val data: SuggestedItemModel, val action: (SuggestedItemModel) -> Unit) : BindableItem<ItemSuggestedBinding>() {
 
     override fun bind(viewBinding: ItemSuggestedBinding, position: Int) {
         setupView(viewBinding)
@@ -25,5 +24,4 @@ class SuggestedItem(private val data: SuggestedItemModel, val action: (Suggested
     override fun getLayout(): Int = R.layout.item_suggested
 
     override fun initializeViewBinding(view: View): ItemSuggestedBinding = ItemSuggestedBinding.bind(view)
-
 }

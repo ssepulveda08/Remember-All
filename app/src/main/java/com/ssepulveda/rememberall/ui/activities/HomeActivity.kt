@@ -35,8 +35,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.crypto.Cipher
 
 @AndroidEntryPoint
-class HomeActivity : BaseActivity(), BiometricCallback, SuggestedDialog.SuggestedDialogListener,
-    ListAppItem.ListenerItem  {
+class HomeActivity :
+    BaseActivity(),
+    BiometricCallback,
+    SuggestedDialog.SuggestedDialogListener,
+    ListAppItem.ListenerItem {
 
     private val viewModel: HomeViewModel by viewModels()
 
@@ -284,7 +287,6 @@ class HomeActivity : BaseActivity(), BiometricCallback, SuggestedDialog.Suggeste
     }
 
     override fun biometricError(throwable: Throwable) {
-
     }
 
     override fun biometricSuccess(result: BiometricPrompt.AuthenticationResult) {

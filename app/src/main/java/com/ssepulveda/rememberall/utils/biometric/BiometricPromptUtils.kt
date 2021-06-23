@@ -1,4 +1,4 @@
-package com.ssepulveda.rememberall.utils.biometric;
+package com.ssepulveda.rememberall.utils.biometric
 
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,6 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import com.ssepulveda.rememberall.R
 import com.ssepulveda.rememberall.utils.BiometricCallback
-
 
 object BiometricPromptUtils {
     private const val TAG = "BiometricPromptUtils"
@@ -38,7 +37,7 @@ object BiometricPromptUtils {
         return BiometricPrompt(activity, executor, callback)
     }
 
-    fun createPromptInfo(activity: AppCompatActivity ): BiometricPrompt.PromptInfo =
+    fun createPromptInfo(activity: AppCompatActivity): BiometricPrompt.PromptInfo =
         BiometricPrompt.PromptInfo.Builder().apply {
             setTitle(activity.getString(R.string.prompt_info_title))
             setSubtitle(activity.getString(R.string.prompt_info_subtitle))

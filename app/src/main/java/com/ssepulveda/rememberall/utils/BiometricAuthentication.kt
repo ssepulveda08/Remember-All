@@ -23,7 +23,6 @@ class BiometricAuthentication(
         val promptInfo = BiometricPromptUtils.createPromptInfo(activity)
         biometricPrompt.authenticate(promptInfo, BiometricPrompt.CryptoObject(cipher))
     }
-
 }
 
 interface BiometricCallback {
