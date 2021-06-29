@@ -22,9 +22,21 @@ android {
 
     buildTypes {
         release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "API_KEY_FLURRY", "\"$FLURRY_API_KEY\""
+            resValue "string", "api_key_flurry", "$FLURRY_API_KEY"
+        }
+
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "API_KEY_FLURRY", "\"$FLURRY_API_KEY\""
+            resValue "string", "api_key_flurry", "$FLURRY_API_KEY"
         }
+
     }
 
     compileOptions {
@@ -84,6 +96,9 @@ dependencies {
 
     //Gson
     implementation "com.google.code.gson:gson:$gson_version"
+
+    //Flurry
+    implementation 'com.flurry.android:analytics:12.13.0@aar'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

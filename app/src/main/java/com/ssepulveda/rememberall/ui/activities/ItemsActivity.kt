@@ -137,7 +137,7 @@ class ItemsActivity : BaseActivity() {
         }
     }
 
-    /* private fun startEditItem(item: ItemList) {
-         viewModel.updateItem(item)
-     }*/
+    override fun registerEventShowActivity() {
+        analyticsManager.eventRegistration("SHOW_ITEMS_ACTIVITY")
+    }
 }
