@@ -162,9 +162,11 @@ class HomeActivity :
     @SuppressLint("RtlHardcoded")
     private fun initListener() {
         binding.containerHomeList.containerHeader.imageViewSettings.setOnClickListener {
+            analyticsManager.eventRegistration("SHOW_MENU")
             binding.drawerLayout.openDrawer(Gravity.LEFT)
         }
         binding.containerMenu.headerMenu.imageViewClose.setOnClickListener {
+            analyticsManager.eventRegistration("CLOSE_MENU")
             binding.drawerLayout.closeDrawer(Gravity.LEFT)
         }
         binding.containerMenu.headerMenu.imageViewEditProfile.setOnClickListener {
@@ -286,8 +288,11 @@ class HomeActivity :
         }
     }
 
-    override fun biometricError(throwable: Throwable) {
+    override fun registerEventShowActivity() {
+        analyticsManager.eventRegistration("SHOW_HOME_ACTIVITY")
     }
+
+    override fun biometricError(throwable: Throwable) {}
 
     override fun biometricSuccess(result: BiometricPrompt.AuthenticationResult) {
         viewModel.encryptAndStoreServerToken(result)

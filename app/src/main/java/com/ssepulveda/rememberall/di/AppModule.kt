@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.room.Room
 import com.ssepulveda.rememberall.db.database.AppDatabase
+import com.ssepulveda.rememberall.manager.AnalyticsManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,4 +32,7 @@ class AppModule {
     @Provides
     @Singleton
     fun editorProvider(preference: SharedPreferences): SharedPreferences.Editor = preference.edit()
+
+    @Provides
+    fun analyticsManagerProvider(): AnalyticsManager = AnalyticsManager()
 }

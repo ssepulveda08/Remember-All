@@ -29,6 +29,7 @@ data class CounterList(
         )
     ]
 )
+
 data class ItemList(
     @PrimaryKey(autoGenerate = true) val itemId: Long,
     val listId: Long,

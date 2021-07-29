@@ -63,4 +63,8 @@ class SplashActivity : BaseActivity(), BiometricCallback {
     override fun biometricSuccess(result: BiometricPrompt.AuthenticationResult) {
         viewModel.decryptServerTokenFromStorage(result)
     }
+
+    override fun registerEventShowActivity() {
+        analyticsManager.eventRegistration("SHOW_SPLASH_ACTIVITY")
+    }
 }

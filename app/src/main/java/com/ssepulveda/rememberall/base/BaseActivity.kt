@@ -2,11 +2,23 @@ package com.ssepulveda.rememberall.base
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
+import com.ssepulveda.rememberall.manager.AnalyticsManager
 import com.ssepulveda.rememberall.ui.activities.models.StartActivityModel
+import javax.inject.Inject
 
 open class BaseActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var analyticsManager: AnalyticsManager
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        registerEventShowActivity()
+    }
+
     fun showDialog(dialog: DialogFragment, tag: String?): Boolean {
         var wasShown = false
         val fragment = supportFragmentManager.findFragmentByTag(dialog.javaClass.name)
@@ -34,4 +46,6 @@ open class BaseActivity : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_VIEW, uri)
         startActivity(intent)
     }
+
+    open fun registerEventShowActivity() {}
 }
