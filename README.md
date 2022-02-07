@@ -24,6 +24,6 @@ Este proyecto se acopla al patrón de arquitectura **MVVM**, adicional se persis
 
 ## Contribuciones
 
-- [Santiago Sepulveda Cardenas ](https://www.linkedin.com/in/santiago-sepulveda-2565a0187/)
+- [Santiago Sepulveda Cardenas](https://www.linkedin.com/in/santiago-sepulveda-2565a0187/)
 
 @2021
